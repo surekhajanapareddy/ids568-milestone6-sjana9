@@ -1,0 +1,223 @@
+{
+  "k": 3,
+  "num_queries": 10,
+  "mean_precision@3": 0.4,
+  "mean_recall@3": 1.0,
+  "mean_retrieval_latency_s": 0.0193,
+  "mean_generation_latency_s": 15.2086,
+  "mean_e2e_latency_s": 15.2278,
+  "per_query": [
+    {
+      "query_id": 1,
+      "query": "What is the transformer architecture and how does it work?",
+      "description": "Direct factual retrieval \u2013 Transformer basics",
+      "relevant_docs": [
+        "doc_001"
+      ],
+      "retrieved_docs": [
+        "doc_001",
+        "doc_004",
+        "doc_002"
+      ],
+      "answer_snippet": "The Transformer architecture is a revolutionary approach in natural language processing, introduced by Vaswani et al. in 2017. It processes all tokens in a sequence in parallel, unlike Recurrent Neura",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0557,
+        "generation_s": 22.333,
+        "end_to_end_s": 22.389
+      }
+    },
+    {
+      "query_id": 2,
+      "query": "How does BERT use bidirectional encoding for language understanding?",
+      "description": "BERT-specific technical question",
+      "relevant_docs": [
+        "doc_002"
+      ],
+      "retrieved_docs": [
+        "doc_002",
+        "doc_003",
+        "doc_001"
+      ],
+      "answer_snippet": "BERT uses bidirectional encoding for language understanding by reading the entire sequence at once, capturing context from both directions simultaneously during its pre-training phase. This is achieve",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0313,
+        "generation_s": 7.04,
+        "end_to_end_s": 7.071
+      }
+    },
+    {
+      "query_id": 3,
+      "query": "What is the difference between GPT and BERT models?",
+      "description": "Multi-document comparison",
+      "relevant_docs": [
+        "doc_002",
+        "doc_003"
+      ],
+      "retrieved_docs": [
+        "doc_003",
+        "doc_002",
+        "doc_009"
+      ],
+      "answer_snippet": "The main differences between GPT and BERT models lie in their architecture, optimization, and primary use cases.\n\n1. Architecture: GPT (Generative Pre-trained Transformer) uses causal (left-to-right) ",
+      "precision@3": 0.6667,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0121,
+        "generation_s": 19.702,
+        "end_to_end_s": 19.714
+      }
+    },
+    {
+      "query_id": 4,
+      "query": "How does the self-attention mechanism compute attention scores?",
+      "description": "Deep-dive into attention math",
+      "relevant_docs": [
+        "doc_004"
+      ],
+      "retrieved_docs": [
+        "doc_004",
+        "doc_001",
+        "doc_009"
+      ],
+      "answer_snippet": "The self-attention mechanism computes attention scores by taking the dot product of queries (query_i) and keys (key_j), scaling them by sqrt(dk), applying a softmax function to normalize the scores in",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0103,
+        "generation_s": 8.242,
+        "end_to_end_s": 8.252
+      }
+    },
+    {
+      "query_id": 5,
+      "query": "What are LoRA and QLoRA methods for fine-tuning LLMs efficiently?",
+      "description": "PEFT methods question",
+      "relevant_docs": [
+        "doc_005"
+      ],
+      "retrieved_docs": [
+        "doc_005",
+        "doc_008",
+        "doc_010"
+      ],
+      "answer_snippet": "LoRA (Low-Rank Adaptation) and QLoRA are methods for fine-tuning Large Language Models (LLMs) efficiently. LoRA adds low-rank decomposition matrices to the attention layers of a pre-trained model, all",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0301,
+        "generation_s": 11.495,
+        "end_to_end_s": 11.525
+      }
+    },
+    {
+      "query_id": 6,
+      "query": "What is retrieval-augmented generation and what are its benefits over fine-tuning?",
+      "description": "RAG concept + comparison",
+      "relevant_docs": [
+        "doc_006"
+      ],
+      "retrieved_docs": [
+        "doc_006",
+        "doc_005",
+        "doc_009"
+      ],
+      "answer_snippet": "Retrieval-Augmented Generation (RAG) is a method that enhances language model responses by dynamically retrieving relevant external knowledge at inference time. This approach grounds responses in rele",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0115,
+        "generation_s": 12.403,
+        "end_to_end_s": 12.415
+      }
+    },
+    {
+      "query_id": 7,
+      "query": "What are vector databases and which indexing strategies do they use?",
+      "description": "Vector DB and HNSW/IVF indexing",
+      "relevant_docs": [
+        "doc_007"
+      ],
+      "retrieved_docs": [
+        "doc_007",
+        "doc_006",
+        "doc_004"
+      ],
+      "answer_snippet": "Vector databases are specialized storage systems optimized for efficient similarity search over high-dimensional vector embeddings. They are used in applications such as RAG systems, semantic search, ",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0085,
+        "generation_s": 12.119,
+        "end_to_end_s": 12.127
+      }
+    },
+    {
+      "query_id": 8,
+      "query": "What are best practices for deploying ML models using MLOps?",
+      "description": "MLOps practices",
+      "relevant_docs": [
+        "doc_008"
+      ],
+      "retrieved_docs": [
+        "doc_008",
+        "doc_010",
+        "doc_005"
+      ],
+      "answer_snippet": "Best practices for deploying ML models using MLOps include:\n\n1. Implementing CI/CD pipelines for model training and deployment.\n2. Using model versioning tools such as MLflow and Weights & Biases.\n3. ",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0153,
+        "generation_s": 17.83,
+        "end_to_end_s": 17.845
+      }
+    },
+    {
+      "query_id": 9,
+      "query": "What metrics are used to evaluate RAG pipelines and NLP models?",
+      "description": "Evaluation metrics \u2013 multi-doc",
+      "relevant_docs": [
+        "doc_009",
+        "doc_006"
+      ],
+      "retrieved_docs": [
+        "doc_009",
+        "doc_006",
+        "doc_002"
+      ],
+      "answer_snippet": "For RAG pipelines, the evaluation can be done through various methods such as measuring retrieval precision@k, recall@k, Mean Reciprocal Rank (MRR), and considering factors like reduction of hallucina",
+      "precision@3": 0.6667,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0091,
+        "generation_s": 21.678,
+        "end_to_end_s": 21.687
+      }
+    },
+    {
+      "query_id": 10,
+      "query": "What are the main challenges when deploying LLMs in production?",
+      "description": "LLM production challenges",
+      "relevant_docs": [
+        "doc_010"
+      ],
+      "retrieved_docs": [
+        "doc_008",
+        "doc_010",
+        "doc_005"
+      ],
+      "answer_snippet": "The main challenges when deploying Large Language Models (LLMs) in production, as mentioned in the provided context, include:\n\n1. Computational Cost: LLMs require significant computational resources, ",
+      "precision@3": 0.3333,
+      "recall@3": 1.0,
+      "latency": {
+        "retrieval_s": 0.0094,
+        "generation_s": 19.244,
+        "end_to_end_s": 19.253
+      }
+    }
+  ]
+}

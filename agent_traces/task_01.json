@@ -1,0 +1,56 @@
+{
+  "task": "What is RAG, and how does it differ from fine-tuning a language model?",
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "What is RAG, and how does it differ from fine-tuning a language model?",
+      "reasoning": "Default: retrieve first",
+      "decision_latency_s": 6.692,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "What is RAG, and how does it differ from fine-tuning a language model?",
+        "latency_s": 0.051,
+        "results": [
+          {
+            "title": "Retrieval-Augmented Generation (RAG)",
+            "doc_id": "doc_006",
+            "relevance_score": 0.4709,
+            "snippet": "Retrieval-Augmented Generation (RAG) enhances language model responses by grounding them in relevant external knowledge retrieved at inference time. Instead of relying solely on parameters, RAG dynamically retrieves relevant documents and includes them as context. The RAG pipeline has two phases: indexing and retrieval-generation. During indexing, documents are split into chunks, converted to dens"
+          },
+          {
+            "title": "NLP Evaluation Metrics",
+            "doc_id": "doc_009",
+            "relevance_score": 0.4049,
+            "snippet": "Evaluating NLP models requires metrics aligned with task objectives. Different tasks need different metrics, and no single metric captures all aspects of quality. For text generation: BLEU measures n-gram overlap between generated and reference text. ROUGE is standard for summarization, computing ROUGE-1 (unigrams), ROUGE-2 (bigrams), and ROUGE-L (LCS). BERTScore uses contextual embeddings to meas"
+          },
+          {
+            "title": "Fine-tuning Large Language Models",
+            "doc_id": "doc_005",
+            "relevance_score": 0.3589,
+            "snippet": "Fine-tuning adapts a pre-trained language model to a specific task or domain using a smaller dataset. It leverages pre-trained knowledge while specializing for particular requirements. Full fine-tuning updates all model parameters and typically achieves the best performance, but requires significant compute \u2014 80+ GB GPU memory for 7B models. Parameter-efficient fine-tuning (PEFT) methods like LoRA"
+          }
+        ]
+      },
+      "tool_latency_s": 0.051
+    },
+    {
+      "step": 2,
+      "action": "answer",
+      "input": "What is RAG, and how does it differ from fine-tuning a language model?",
+      "reasoning": "Fallback: already retrieved, answer now",
+      "decision_latency_s": 4.842,
+      "tool_result": "RAG (Retrieval-Augmented Generation) is a method that enhances language model responses by dynamically retrieving relevant external knowledge at inference time. It consists of two phases: indexing and retrieval-generation. In contrast, fine-tuning a language model involves adapting a pre-trained model to a specific task or domain using a smaller dataset. Fine-tuning updates all model parameters, while RAG does not modify the original model parameters directly; instead, it incorporates the retrieved documents as additional context during the generation phase.",
+      "tool_latency_s": 9.567
+    }
+  ],
+  "final_answer": "RAG (Retrieval-Augmented Generation) is a method that enhances language model responses by dynamically retrieving relevant external knowledge at inference time. It consists of two phases: indexing and retrieval-generation. In contrast, fine-tuning a language model involves adapting a pre-trained model to a specific task or domain using a smaller dataset. Fine-tuning updates all model parameters, while RAG does not modify the original model parameters directly; instead, it incorporates the retrieved documents as additional context during the generation phase.",
+  "status": "success",
+  "total_latency_s": 21.153,
+  "task_id": "task_01",
+  "category": "comparison",
+  "expected_tools": [
+    "retriever",
+    "answer"
+  ]
+}

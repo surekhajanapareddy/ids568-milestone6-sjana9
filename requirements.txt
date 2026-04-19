@@ -1,0 +1,32 @@
+# Milestone 6 – Pinned Dependencies
+# Install with: pip install -r requirements.txt
+# Tested on: Google Colab T4 GPU (Python 3.10)
+
+# ── Vector database ───────────────────────────────────────────────
+chromadb==0.5.3
+
+# ── Embedding model ───────────────────────────────────────────────
+sentence-transformers==3.0.1
+
+# ── LLM inference (Mistral-7B via HuggingFace Transformers) ───────
+transformers==4.44.2
+accelerate==0.34.0
+bitsandbytes==0.43.3       # 4-bit NF4 quantization
+torch==2.4.0
+
+# ── LangChain (optional – used for pipeline orchestration) ────────
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-chroma==0.1.4
+
+# ── Utilities ─────────────────────────────────────────────────────
+numpy==1.26.4
+pandas==2.2.2
+tqdm==4.66.5
+python-dotenv==1.0.1
+pydantic==2.8.2
+scikit-learn==1.5.1
+
+# ── Notebook support ──────────────────────────────────────────────
+jupyter==1.1.1
+ipykernel==6.29.5

@@ -1,0 +1,85 @@
+{
+  "task_id": "task_10",
+  "category": "multi-hop",
+  "task": "How do vector embeddings and vector databases work together to enable semantic search in a RAG system?",
+  "status": "success",
+  "total_latency_s": 24.7,
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "vector embeddings semantic similarity sentence transformers",
+      "reasoning": "This is a multi-hop task — I need to understand both (a) how embeddings work and (b) how vector databases use them. Starting with embeddings.",
+      "decision_latency_s": 9.1,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "vector embeddings semantic similarity sentence transformers",
+        "latency_s": 0.049,
+        "results": [
+          {
+            "title": "Vector Databases and Embeddings",
+            "doc_id": "doc_007",
+            "relevance_score": 0.963,
+            "snippet": "Text embeddings are dense vector representations (typically 384-1536 dimensions) that capture semantic meaning. Similar texts produce geometrically close vectors, measured by cosine similarity or Euclidean distance. Common embedding models include sentence-transformers (all-MiniLM-L6-v2). Vector databases use HNSW indexing for best speed-accuracy tradeoff."
+          },
+          {
+            "title": "Retrieval-Augmented Generation (RAG)",
+            "doc_id": "doc_006",
+            "relevance_score": 0.871,
+            "snippet": "During indexing, documents are split into chunks, converted to dense vector embeddings, and stored in a vector database. At query time, the question is embedded and used to search for the most similar chunks via approximate nearest-neighbour search."
+          },
+          {
+            "title": "NLP Evaluation Metrics",
+            "doc_id": "doc_009",
+            "relevance_score": 0.503,
+            "snippet": "BERTScore uses contextual embeddings to measure semantic similarity beyond lexical overlap."
+          }
+        ]
+      },
+      "tool_latency_s": 0.049
+    },
+    {
+      "step": 2,
+      "action": "retriever",
+      "input": "HNSW FAISS approximate nearest neighbor search vector database indexing query",
+      "reasoning": "The first retrieval covered embeddings well. Now I specifically need information about how vector databases index and search those embeddings (HNSW, ANN search). Running a second targeted retrieval.",
+      "decision_latency_s": 9.2,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "HNSW FAISS approximate nearest neighbor search vector database indexing query",
+        "latency_s": 0.044,
+        "results": [
+          {
+            "title": "Vector Databases and Embeddings",
+            "doc_id": "doc_007",
+            "relevance_score": 0.941,
+            "snippet": "Indexing strategies: flat (exact search, O(n) complexity); IVF (inverted file index, clustering-based approximate search); HNSW (hierarchical navigable small world graphs for fast approximate nearest neighbour search). HNSW offers the best speed-accuracy tradeoff for most production use cases."
+          },
+          {
+            "title": "Retrieval-Augmented Generation (RAG)",
+            "doc_id": "doc_006",
+            "relevance_score": 0.832,
+            "snippet": "RAG depends heavily on chunking quality and index accuracy. The user's question is embedded and used to search for the most similar document chunks."
+          },
+          {
+            "title": "MLOps: Model Deployment and Operations",
+            "doc_id": "doc_008",
+            "relevance_score": 0.411,
+            "snippet": "REST APIs for standard inference; specialized LLM servers with batching and KV-cache optimization."
+          }
+        ]
+      },
+      "tool_latency_s": 0.044
+    },
+    {
+      "step": 3,
+      "action": "answer",
+      "input": "How do vector embeddings and vector databases work together to enable semantic search in a RAG system?",
+      "reasoning": "I now have comprehensive information about both embeddings (doc_007, doc_006) and vector database indexing strategies (doc_007 second retrieval). I can synthesize a complete multi-hop answer.",
+      "decision_latency_s": 9.3,
+      "tool_result": "Here is how embeddings and vector databases work together in a RAG system:\n\n**Step 1 — Create embeddings (indexing time)**\nEach document chunk is passed through an embedding model (e.g., all-MiniLM-L6-v2). The model converts the text into a dense vector of 384 floating-point numbers. Semantically similar texts produce vectors that are geometrically close — 'machine learning' and 'deep learning' will be near each other; 'pizza recipe' will be far away.\n\n**Step 2 — Store in a vector database**\nThese vectors are stored in a vector database (e.g., ChromaDB, FAISS, Weaviate) using an efficient index structure. The most common is HNSW (Hierarchical Navigable Small World), which organises vectors in a graph so similar vectors are connected. This allows sub-linear search time (much faster than checking every vector).\n\n**Step 3 — Query (retrieval time)**\nWhen a user asks a question, the same embedding model converts the question into a query vector. The vector database performs approximate nearest-neighbour (ANN) search — it traverses the HNSW graph to find the top-k stored vectors that are closest (by cosine similarity) to the query vector.\n\n**Step 4 — Return semantically relevant chunks**\nThe returned chunks are semantically related to the question — not just keyword-matched. A query for 'how does attention work?' correctly retrieves chunks about 'self-attention mechanism' even if the phrase 'how does attention work' never appears in the document.\n\nThis is what makes RAG semantic rather than keyword-based: meaning is encoded into geometry.",
+      "tool_latency_s": 11.6
+    }
+  ],
+  "final_answer": "Embeddings convert text into dense vectors where similar texts are geometrically close. Vector databases (HNSW index) store these vectors and enable sub-linear approximate nearest-neighbour search. At query time, the question is embedded and the database returns the top-k semantically similar chunks — enabling meaning-based retrieval, not just keyword matching."
+}

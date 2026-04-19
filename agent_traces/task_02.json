@@ -1,0 +1,57 @@
+{
+  "task": "Summarise the key differences between BERT and GPT architectures.",
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "Summarise the key differences between BERT and GPT architectures.",
+      "reasoning": "Default: retrieve first",
+      "decision_latency_s": 4.593,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "Summarise the key differences between BERT and GPT architectures.",
+        "latency_s": 0.0305,
+        "results": [
+          {
+            "title": "GPT: Generative Pre-trained Transformers",
+            "doc_id": "doc_003",
+            "relevance_score": 0.6087,
+            "snippet": "GPT (Generative Pre-trained Transformer), developed by OpenAI, is a family of autoregressive language models using the decoder portion of the Transformer. Unlike BERT's bidirectional attention, GPT uses causal (left-to-right) attention, making it naturally suited for text generation. The original GPT (2018) had 117M parameters. GPT-2 (2019) scaled to 1.5B and demonstrated impressive zero-shot and "
+          },
+          {
+            "title": "BERT: Bidirectional Encoder Representations from Transformers",
+            "doc_id": "doc_002",
+            "relevance_score": 0.5638,
+            "snippet": "BERT (Bidirectional Encoder Representations from Transformers), developed by Google in 2018, represents a major breakthrough in NLP pre-training. Unlike previous models that read text left-to-right or right-to-left, BERT reads the entire sequence at once, capturing context from both directions simultaneously. BERT uses two pre-training objectives: Masked Language Modeling (MLM) and Next Sentence P"
+          },
+          {
+            "title": "Introduction to Transformer Architecture",
+            "doc_id": "doc_001",
+            "relevance_score": 0.4079,
+            "snippet": "The Transformer architecture, introduced in \"Attention Is All You Need\" by Vaswani et al. (2017), revolutionized natural language processing. Unlike recurrent neural networks (RNNs) that process sequential data step-by-step, Transformers process all tokens in parallel, enabling significantly more efficient training on modern hardware. The core innovation is the self-attention mechanism, which allo"
+          }
+        ]
+      },
+      "tool_latency_s": 0.0305
+    },
+    {
+      "step": 2,
+      "action": "answer",
+      "input": "Summarise the key differences between BERT and GPT architectures.",
+      "reasoning": "Fallback: already retrieved, answer now",
+      "decision_latency_s": 8.721,
+      "tool_result": "BERT and GPT are both language models based on the Transformer architecture, but they have significant differences:\n\n1. Directionality: BERT reads an entire sequence at once, capturing context from both directions simultaneously, while GPT uses causal (left-to-right) attention, making it naturally suited for text generation.\n\n2. Pre-training Objectives: BERT uses two pre-training objectives - Masked Language Modeling (MLM) and Next Sentence Prediction, whereas GPT's primary focus is on generating text given a starting sequence.\n\n3. Parameter Count: Initially, GPT had 117M parameters, while BERT was scaled up to 1.5B parameters in its version (BERT).\n\n4. Architecture: While both use the Transformer architecture, BERT was developed by Google, and GPT was developed by OpenAI.",
+      "tool_latency_s": 15.133
+    }
+  ],
+  "final_answer": "BERT and GPT are both language models based on the Transformer architecture, but they have significant differences:\n\n1. Directionality: BERT reads an entire sequence at once, capturing context from both directions simultaneously, while GPT uses causal (left-to-right) attention, making it naturally suited for text generation.\n\n2. Pre-training Objectives: BERT uses two pre-training objectives - Masked Language Modeling (MLM) and Next Sentence Prediction, whereas GPT's primary focus is on generating text given a starting sequence.\n\n3. Parameter Count: Initially, GPT had 117M parameters, while BERT was scaled up to 1.5B parameters in its version (BERT).\n\n4. Architecture: While both use the Transformer architecture, BERT was developed by Google, and GPT was developed by OpenAI.",
+  "status": "success",
+  "total_latency_s": 28.478,
+  "task_id": "task_02",
+  "category": "summarization",
+  "expected_tools": [
+    "retriever",
+    "summarizer",
+    "answer"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "task_id": "task_04",
+  "category": "list-generation",
+  "task": "List the best MLOps practices for deploying a machine-learning model to production.",
+  "status": "success",
+  "total_latency_s": 14.2,
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "MLOps best practices deploying machine learning models production CI/CD monitoring",
+      "reasoning": "The task asks for MLOps deployment practices. I need to retrieve the relevant document from the knowledge base.",
+      "decision_latency_s": 9.3,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "MLOps best practices deploying machine learning models production CI/CD monitoring",
+        "latency_s": 0.052,
+        "results": [
+          {
+            "title": "MLOps: Model Deployment and Operations",
+            "doc_id": "doc_008",
+            "relevance_score": 0.943,
+            "snippet": "Key MLOps components: CI/CD pipelines for model training and deployment; model versioning with MLflow and Weights & Biases; containerization with Docker; Kubernetes for scalability; monitoring dashboards. Model serving: REST APIs, gRPC, streaming (Kafka), specialized LLM servers (vLLM, TGI, Ollama). Monitoring must track technical metrics and ML-specific metrics (data drift, concept drift). Automated retraining pipelines should trigger on performance degradation."
+          },
+          {
+            "title": "Large Language Models in Production",
+            "doc_id": "doc_010",
+            "relevance_score": 0.821,
+            "snippet": "Key production considerations: rate limiting; prompt injection detection; output validation; fallback strategies; cost monitoring; latency SLAs. Model versioning and A/B testing are essential for safely rolling out updates."
+          },
+          {
+            "title": "NLP Evaluation Metrics",
+            "doc_id": "doc_009",
+            "relevance_score": 0.512,
+            "snippet": "Evaluating NLP models requires metrics aligned with task objectives."
+          }
+        ]
+      },
+      "tool_latency_s": 0.052
+    },
+    {
+      "step": 2,
+      "action": "answer",
+      "input": "List the best MLOps practices for deploying a machine-learning model to production.",
+      "reasoning": "doc_008 and doc_010 provide comprehensive MLOps and production deployment guidance. I have sufficient context for a complete list.",
+      "decision_latency_s": 9.4,
+      "tool_result": "Best MLOps practices for production deployment:\n\n1. **CI/CD pipelines** — Automate model training, testing, and deployment using CI/CD workflows to catch regressions early.\n2. **Model versioning** — Track all model versions, hyperparameters, and metrics with tools like MLflow or Weights & Biases.\n3. **Containerisation** — Package models and dependencies in Docker containers for reproducible, environment-agnostic deployment.\n4. **Orchestration** — Use Kubernetes to manage scaling, rolling updates, and resource allocation.\n5. **Serving framework** — Choose the right serving stack: REST APIs (FastAPI) for general use; vLLM/TGI for LLMs with batching and KV-cache.\n6. **Monitoring** — Track latency p50/p95/p99, error rates, data drift, and concept drift continuously.\n7. **Automated retraining** — Trigger retraining pipelines when performance metrics drop below defined thresholds.\n8. **A/B testing** — Gradually roll out new models with shadow deployment or traffic splitting.\n9. **Rate limiting and fallbacks** — Protect the service with request quotas and degraded-mode fallbacks.\n10. **Cost monitoring** — Track token consumption, GPU utilisation, and cost per request.",
+      "tool_latency_s": 12.2
+    }
+  ],
+  "final_answer": "Top MLOps production practices: CI/CD pipelines, model versioning (MLflow/W&B), Docker containerisation, Kubernetes orchestration, appropriate serving framework (FastAPI/vLLM), continuous monitoring (latency + drift), automated retraining triggers, A/B testing, rate limiting with fallbacks, and cost monitoring."
+}

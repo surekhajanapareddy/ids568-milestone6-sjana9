@@ -1,0 +1,69 @@
+{
+  "task": "Explain LoRA and QLoRA. When would you choose one over the other?",
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "Explain LoRA and QLoRA. When would you choose one over the other?",
+      "reasoning": "Default: retrieve first",
+      "decision_latency_s": 5.005,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "Explain LoRA and QLoRA. When would you choose one over the other?",
+        "latency_s": 0.0087,
+        "results": [
+          {
+            "title": "Fine-tuning Large Language Models",
+            "doc_id": "doc_005",
+            "relevance_score": 0.3447,
+            "snippet": "Fine-tuning adapts a pre-trained language model to a specific task or domain using a smaller dataset. It leverages pre-trained knowledge while specializing for particular requirements. Full fine-tuning updates all model parameters and typically achieves the best performance, but requires significant compute \u2014 80+ GB GPU memory for 7B models. Parameter-efficient fine-tuning (PEFT) methods like LoRA"
+          },
+          {
+            "title": "The Self-Attention Mechanism",
+            "doc_id": "doc_004",
+            "relevance_score": 0.1123,
+            "snippet": "Self-attention (scaled dot-product attention) is the core computational building block of the Transformer. It allows each position in a sequence to attend to all other positions, computing a weighted sum of values based on query-key similarities. The mechanism operates on three matrices: Queries (Q), Keys (K), and Values (V), all derived via linear projections of the input. The attention score bet"
+          },
+          {
+            "title": "Retrieval-Augmented Generation (RAG)",
+            "doc_id": "doc_006",
+            "relevance_score": 0.0365,
+            "snippet": "Retrieval-Augmented Generation (RAG) enhances language model responses by grounding them in relevant external knowledge retrieved at inference time. Instead of relying solely on parameters, RAG dynamically retrieves relevant documents and includes them as context. The RAG pipeline has two phases: indexing and retrieval-generation. During indexing, documents are split into chunks, converted to dens"
+          }
+        ]
+      },
+      "tool_latency_s": 0.0087
+    },
+    {
+      "step": 2,
+      "action": "summarizer",
+      "input": "[Fine-tuning Large Language Models, The Self-Attention Mechanism, Retrieval-Augmented Generation (RAG)]",
+      "reasoning": "Summarizing the retrieved titles to provide a brief overview of the topics before diving deeper into specific details.",
+      "decision_latency_s": 5.756,
+      "tool_result": {
+        "tool": "summarizer",
+        "summary": "The text discusses three key aspects of large language models: Fine-tuning, Self-Attention Mechanism, and Retrieval-Augmented Generation (RAG). Fine-tuning is a process that adjusts pre-trained models to perform specific tasks. The Self-Attention Mechanism allows models to focus on relevant information within input data for better understanding. Retrieval-Augmented Generation (RAG) is an approach that combines a model's generated response with retrieved information from external sources to improve its accuracy and relevance.",
+        "latency_s": 9.238
+      },
+      "tool_latency_s": 9.238
+    },
+    {
+      "step": 3,
+      "action": "answer",
+      "input": "Explain LoRA and QLoRA. When would you choose one over the other?",
+      "reasoning": "Fallback: already retrieved, answer now",
+      "decision_latency_s": 5.781,
+      "tool_result": "LoRA (Layer-wise Relevance Attribution) is a parameter-efficient fine-tuning method mentioned in the context. It allows for efficient adaptation of pre-trained models to specific tasks without requiring significant compute resources, unlike full fine-tuning. LoRA works by adding learnable parameters to the existing model, which are used to scale the weights of the pre-trained model during fine-tuning. This way, it preserves the pre-trained knowledge while specializing for particular requirements.\n\nQLoRA (Quantized LoRA) is an extension of LoRA, designed to further reduce the computational cost by quantizing the learnable parameters introduced by LoRA. QLoRA can be beneficial when working with limited computational resources or when deploying models on devices with low hardware capabilities.\n\nYou might choose LoRA over QLoRA if you have sufficient computational resources and prioritize model performance over reduced computational cost. On the other hand, QLoRA could be a more suitable choice when working with limited computational resources or deploying models on devices with lower hardware capabilities.",
+      "tool_latency_s": 18.216
+    }
+  ],
+  "final_answer": "LoRA (Layer-wise Relevance Attribution) is a parameter-efficient fine-tuning method mentioned in the context. It allows for efficient adaptation of pre-trained models to specific tasks without requiring significant compute resources, unlike full fine-tuning. LoRA works by adding learnable parameters to the existing model, which are used to scale the weights of the pre-trained model during fine-tuning. This way, it preserves the pre-trained knowledge while specializing for particular requirements.\n\nQLoRA (Quantized LoRA) is an extension of LoRA, designed to further reduce the computational cost by quantizing the learnable parameters introduced by LoRA. QLoRA can be beneficial when working with limited computational resources or when deploying models on devices with low hardware capabilities.\n\nYou might choose LoRA over QLoRA if you have sufficient computational resources and prioritize model performance over reduced computational cost. On the other hand, QLoRA could be a more suitable choice when working with limited computational resources or deploying models on devices with lower hardware capabilities.",
+  "status": "success",
+  "total_latency_s": 44.005,
+  "task_id": "task_07",
+  "category": "technical-explanation",
+  "expected_tools": [
+    "retriever",
+    "answer"
+  ]
+}

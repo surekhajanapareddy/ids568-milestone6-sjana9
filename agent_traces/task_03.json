@@ -1,0 +1,56 @@
+{
+  "task": "Explain the self-attention formula and why scaling by sqrt(dk) is important.",
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "Explain the self-attention formula and why scaling by sqrt(dk) is important.",
+      "reasoning": "Default: retrieve first",
+      "decision_latency_s": 10.396,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "Explain the self-attention formula and why scaling by sqrt(dk) is important.",
+        "latency_s": 0.0095,
+        "results": [
+          {
+            "title": "The Self-Attention Mechanism",
+            "doc_id": "doc_004",
+            "relevance_score": 0.5937,
+            "snippet": "Self-attention (scaled dot-product attention) is the core computational building block of the Transformer. It allows each position in a sequence to attend to all other positions, computing a weighted sum of values based on query-key similarities. The mechanism operates on three matrices: Queries (Q), Keys (K), and Values (V), all derived via linear projections of the input. The attention score bet"
+          },
+          {
+            "title": "Introduction to Transformer Architecture",
+            "doc_id": "doc_001",
+            "relevance_score": 0.2892,
+            "snippet": "The Transformer architecture, introduced in \"Attention Is All You Need\" by Vaswani et al. (2017), revolutionized natural language processing. Unlike recurrent neural networks (RNNs) that process sequential data step-by-step, Transformers process all tokens in parallel, enabling significantly more efficient training on modern hardware. The core innovation is the self-attention mechanism, which allo"
+          },
+          {
+            "title": "GPT: Generative Pre-trained Transformers",
+            "doc_id": "doc_003",
+            "relevance_score": 0.1994,
+            "snippet": "GPT (Generative Pre-trained Transformer), developed by OpenAI, is a family of autoregressive language models using the decoder portion of the Transformer. Unlike BERT's bidirectional attention, GPT uses causal (left-to-right) attention, making it naturally suited for text generation. The original GPT (2018) had 117M parameters. GPT-2 (2019) scaled to 1.5B and demonstrated impressive zero-shot and "
+          }
+        ]
+      },
+      "tool_latency_s": 0.0095
+    },
+    {
+      "step": 2,
+      "action": "answer",
+      "input": "Explain the self-attention formula and why scaling by sqrt(dk) is important.",
+      "reasoning": "Fallback: already retrieved, answer now",
+      "decision_latency_s": 11.841,
+      "tool_result": "Self-attention, also known as Scaled Dot-Product Attention, is a key component of the Transformer model. It computes a weighted sum of values based on the similarity between queries (Q), keys (K), and values (V) from the input sequence. The formula for self-attention can be broken down into three steps:\n\n1. Query (Q) \u00d7 Key (K)^T: Multiply the query matrix with the transpose of the key matrix to get a matrix of scores. This operation calculates the similarity between each query and every key.\n\n2. Softmax: Apply the softmax function element-wise to the matrix of scores from the previous step to normalize the values and ensure they sum up to 1 for each row (query). This produces a probability distribution over the keys for each query, representing the attention weights.\n\n3. Value (V) \u00d7 Attention Weights: Multiply the value matrix with the attention weights obtained from the softmax step. This results in a weighted sum of values for each query, which is the output of the self-attention layer.\n\nScaling by sqrt(d_k) is crucial in the self-attention formula to prevent the values from becoming too large during the multiplication of Q \u00d7 K^T. Without this scaling factor, the values could grow exponentially due to the repeated multiplications involved in the attention mechanism, leading to numerical instability and overflow issues. The square root of the dimensionality of the key vector (d_k) serves as a constant that helps maintain the scale of the resulting values and ensures numerical stability.",
+      "tool_latency_s": 27.105
+    }
+  ],
+  "final_answer": "Self-attention, also known as Scaled Dot-Product Attention, is a key component of the Transformer model. It computes a weighted sum of values based on the similarity between queries (Q), keys (K), and values (V) from the input sequence. The formula for self-attention can be broken down into three steps:\n\n1. Query (Q) \u00d7 Key (K)^T: Multiply the query matrix with the transpose of the key matrix to get a matrix of scores. This operation calculates the similarity between each query and every key.\n\n2. Softmax: Apply the softmax function element-wise to the matrix of scores from the previous step to normalize the values and ensure they sum up to 1 for each row (query). This produces a probability distribution over the keys for each query, representing the attention weights.\n\n3. Value (V) \u00d7 Attention Weights: Multiply the value matrix with the attention weights obtained from the softmax step. This results in a weighted sum of values for each query, which is the output of the self-attention layer.\n\nScaling by sqrt(d_k) is crucial in the self-attention formula to prevent the values from becoming too large during the multiplication of Q \u00d7 K^T. Without this scaling factor, the values could grow exponentially due to the repeated multiplications involved in the attention mechanism, leading to numerical instability and overflow issues. The square root of the dimensionality of the key vector (d_k) serves as a constant that helps maintain the scale of the resulting values and ensures numerical stability.",
+  "status": "success",
+  "total_latency_s": 49.352,
+  "task_id": "task_03",
+  "category": "technical-explanation",
+  "expected_tools": [
+    "retriever",
+    "answer"
+  ]
+}

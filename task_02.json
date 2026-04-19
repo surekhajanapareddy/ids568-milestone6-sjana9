@@ -1,0 +1,65 @@
+{
+  "task_id": "task_02",
+  "category": "summarization",
+  "task": "Summarise the key differences between BERT and GPT architectures.",
+  "status": "success",
+  "total_latency_s": 26.1,
+  "steps": [
+    {
+      "step": 1,
+      "action": "retriever",
+      "input": "BERT GPT architecture differences bidirectional autoregressive",
+      "reasoning": "I need to find information about both BERT and GPT architectures to compare them. Starting with retrieval.",
+      "decision_latency_s": 9.0,
+      "tool_result": {
+        "tool": "retriever",
+        "query": "BERT GPT architecture differences bidirectional autoregressive",
+        "latency_s": 0.048,
+        "results": [
+          {
+            "title": "BERT: Bidirectional Encoder Representations from Transformers",
+            "doc_id": "doc_002",
+            "relevance_score": 0.934,
+            "snippet": "BERT reads the entire sequence at once, capturing context from both directions simultaneously. BERT uses two pre-training objectives: Masked Language Modeling (MLM) and Next Sentence Prediction (NSP). BERT excels at classification, NER, and question answering but is not designed for text generation."
+          },
+          {
+            "title": "GPT: Generative Pre-trained Transformers",
+            "doc_id": "doc_003",
+            "relevance_score": 0.921,
+            "snippet": "GPT uses causal (left-to-right) attention, making it naturally suited for text generation. GPT models are pre-trained with a next-token prediction objective. Key differences from BERT: GPT uses unidirectional attention, is optimized for generation rather than understanding."
+          },
+          {
+            "title": "Introduction to Transformer Architecture",
+            "doc_id": "doc_001",
+            "relevance_score": 0.703,
+            "snippet": "The Transformer architecture consists of an encoder stack and a decoder stack. The Transformer is the foundation for BERT, GPT, T5, and all modern large language models."
+          }
+        ]
+      },
+      "tool_latency_s": 0.048
+    },
+    {
+      "step": 2,
+      "action": "summarizer",
+      "input": "BERT reads the entire sequence at once, capturing context from both directions simultaneously. BERT uses two pre-training objectives: Masked Language Modeling (MLM) and Next Sentence Prediction (NSP). BERT excels at classification, NER, and question answering but is not designed for text generation.\n\nGPT uses causal (left-to-right) attention, making it naturally suited for text generation. GPT models are pre-trained with a next-token prediction objective. Key differences from BERT: GPT uses unidirectional attention, is optimized for generation rather than understanding.",
+      "reasoning": "I have two long passages about BERT and GPT. The task specifically requests a summary. I will use the summarizer to condense the retrieved text before generating the final answer.",
+      "decision_latency_s": 9.3,
+      "tool_result": {
+        "tool": "summarizer",
+        "summary": "BERT uses bidirectional attention (reads the full sequence simultaneously) and is pre-trained with Masked Language Modeling and Next Sentence Prediction, making it excellent for understanding tasks like classification and QA. GPT uses unidirectional (left-to-right) causal attention and is pre-trained to predict the next token, making it optimised for text generation. BERT is an encoder-only model; GPT is decoder-only. Both are built on the Transformer foundation but serve different purposes: BERT for understanding, GPT for generation.",
+        "latency_s": 12.1
+      },
+      "tool_latency_s": 12.1
+    },
+    {
+      "step": 3,
+      "action": "answer",
+      "input": "Summarise the key differences between BERT and GPT architectures.",
+      "reasoning": "I now have a condensed summary of BERT and GPT differences from the summarizer. I can use this to produce a well-structured final answer.",
+      "decision_latency_s": 9.1,
+      "tool_result": "Here are the key differences between BERT and GPT:\n\n**Attention direction:**\n- BERT: Bidirectional — reads the entire sequence in both directions simultaneously.\n- GPT: Unidirectional (causal) — reads left-to-right only.\n\n**Architecture:**\n- BERT: Encoder-only Transformer.\n- GPT: Decoder-only Transformer.\n\n**Pre-training objective:**\n- BERT: Masked Language Modeling (predicts masked tokens) + Next Sentence Prediction.\n- GPT: Next-token prediction (autoregressive generation).\n\n**Primary use case:**\n- BERT: Language understanding — classification, NER, question answering.\n- GPT: Text generation — dialogue, completion, summarisation.\n\n**Fine-tuning:**\n- BERT requires a task-specific output head and a few epochs of supervised fine-tuning.\n- GPT can perform many tasks via prompting without task-specific fine-tuning.",
+      "tool_latency_s": 11.4
+    }
+  ],
+  "final_answer": "Key differences between BERT and GPT: BERT uses bidirectional attention (encoder-only), pre-trained with MLM+NSP, best for understanding tasks. GPT uses unidirectional causal attention (decoder-only), pre-trained for next-token prediction, best for generation tasks."
+}
