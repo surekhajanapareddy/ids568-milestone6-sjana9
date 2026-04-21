@@ -15,7 +15,7 @@ This repository implements two components:
 ## Repository Structure
 
 ```
-ids568-milestone6-[netid]/
+ids568-milestone6-sjan9/
 ├── rag_pipeline.py              # Part 1: RAG implementation
 ├── agent_controller.py          # Part 2: Agent controller
 ├── rag_evaluation_report.md     # Part 1: Evaluation report (~2 pages)
