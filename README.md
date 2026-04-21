@@ -52,8 +52,8 @@ ids568-milestone6-[netid]/
 2. Set runtime to **T4 GPU**: `Runtime > Change runtime type > T4 GPU`
 3. Upload all files to Colab or clone the repository:
    ```python
-   !git clone https://github.com/[your-username]/ids568-milestone6-[sjan9].git
-   %cd ids568-milestone6-[sjana9]
+   !git clone https://github.com/surekhajanapareddy/ids568-milestone6-sjan9.git
+   %cd ids568-milestone6-sjana9
    ```
 4. Install dependencies:
    ```bash
@@ -68,8 +68,8 @@ ids568-milestone6-[netid]/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/[your-username]/ids568-milestone6-[sjana9].git
-cd ids568-milestone6-[sjana9]
+git clone https://github.com/surekhajanapareddy/ids568-milestone6-sjana9.git
+cd ids568-milestone6-sjana9
 
 # 2. Create a Python virtual environment
 python3 -m venv venv
